@@ -1,0 +1,464 @@
+- let dev = true // comment me when you are going to copy the files to dev environment
+//- - let dev = false // uncomment me when you are going to copy the files to dev environment
+//- - let devImgUrl = "https://www.m88ura.com/~/static/images/home-page/carousel/"
+- let devImgUrl = "./../images/"
+- let uraIconUrl = "https://www.m88ura.com"
+- let underScore = "_"
+
+
+include ./_data.pug
+include ./_head.pug
+
+    div.carousel-wrapper
+
+        div.slick-carousel
+
+            // ================= HOMEPAGE ANONYMOUS =================
+
+            if(data.is_home)
+                each item in data.data_content
+                    if(item.language == "EN")
+                        // ================================ ANONYMOUS EN ================================
+                        .carousel-item(data-url=`/register`)
+                            each content in item.data_language
+                                if (dev)
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                else
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                .inner.desktop-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titlePc, index in content.pc_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                        else
+                                                            .title-text=titlePc
+                                                    if (content.pc_subtitle)
+                                                        each subTitlePc in content.pc_subtitle
+                                                            .subtitle-text=subTitlePc
+                                                .btn.btn-primary(data-url=`/register` data-matomo-action=`Click - Join Now - ${data.content_piece} - ${item.language} - Desktop`) JOIN NOW
+                                .inner.mobile-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titleSp, index in content.sp_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                        else
+                                                            .title-text.bold.small=titleSp
+                                                    if (content.sp_subtitle)
+                                                        each subTitleSp in content.sp_subtitle
+                                                            .subtitle-text.small=subTitleSp
+                                                .btn.btn-primary(data-url=`/register` data-matomo-action=`Click - Join Now - ${data.content_piece} - ${item.language} - Mobile`) JOIN
+                        // ================================ END ANONYMOUS EN ================================
+
+                    if(item.language == "MYR_CN")
+                        // ================================ ANONYMOUS MYR_CN ================================
+                        .carousel-item(data-url=`/register`)
+                            each content in item.data_language
+                                if (dev)
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                else
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                .inner.desktop-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titlePc, index in content.pc_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                        else
+                                                            .title-text=titlePc
+                                                    if (content.pc_subtitle)
+                                                        each subTitlePc in content.pc_subtitle
+                                                            .subtitle-text=subTitlePc
+                                                .btn.btn-primary(data-url=`/register` data-matomo-action=`Click - Join Now - ${data.content_piece} - ${item.language} - Desktop`) 立即加入
+                                .inner.mobile-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titleSp, index in content.sp_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                        else
+                                                            .title-text.bold.small=titleSp
+                                                    if (content.sp_subtitle)
+                                                        each subTitleSp in content.sp_subtitle
+                                                            .subtitle-text.small=subTitleSp
+                                                .btn.btn-primary(data-url=`/register` data-matomo-action=`Click - Join Now - ${data.content_piece} - ${item.language} - Mobile`) 立即加入
+                        // ================================ END ANONYMOUS MYR_CN ================================
+
+                    if(item.language == "ID")
+                        // ================================ ANONYMOUS ID ================================
+                        .carousel-item(data-url=`/register`)
+                            each content in item.data_language
+                                if (dev)
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                else
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                .inner.desktop-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titlePc, index in content.pc_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                        else
+                                                            .title-text=titlePc
+                                                    if (content.pc_subtitle)
+                                                        each subTitlePc in content.pc_subtitle
+                                                            .subtitle-text=subTitlePc
+                                                .btn.btn-primary(data-url=`/register` data-matomo-action=`Click - Join Now - ${data.content_piece} - ${item.language} - Desktop`) JOIN SEKARANG
+                                .inner.mobile-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titleSp, index in content.sp_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                        else
+                                                            .title-text.bold.small=titleSp
+                                                    if (content.sp_subtitle)
+                                                        each subTitleSp in content.sp_subtitle
+                                                            .subtitle-text.small=subTitleSp
+                                                .btn.btn-primary(data-url=`/register` data-matomo-action=`Click - Join Now - ${data.content_piece} - ${item.language} - Mobile`) JOIN SKRG
+                        // ================================ END ANONYMOUS ID ================================
+
+                    if(item.language == "TH")
+                        // ================================ ANONYMOUS TH ================================
+                        .carousel-item(data-url=`/register`)
+                            each content in item.data_language
+                                if (dev)
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                else
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                .inner.desktop-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titlePc, index in content.pc_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                        else
+                                                            .title-text=titlePc
+                                                    if (content.pc_subtitle)
+                                                        each subTitlePc in content.pc_subtitle
+                                                            .subtitle-text=subTitlePc
+                                                .btn.btn-primary(data-url=`/register` data-matomo-action=`Click - Join Now - ${data.content_piece} - ${item.language} - Desktop`) เข้าร่วมเดี๋ยวนี้
+                                .inner.mobile-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titleSp, index in content.sp_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                        else
+                                                            .title-text.bold.small=titleSp
+                                                    if (content.sp_subtitle)
+                                                        each subTitleSp in content.sp_subtitle
+                                                            .subtitle-text.small=subTitleSp
+                                                .btn.btn-primary(data-url=`/register` data-matomo-action=`Click - Join Now - ${data.content_piece} - ${item.language} - Mobile`) เข้าร่วมเดี๋ยวนี้
+                        // ================================ END ANONYMOUS TH ================================
+
+                    if(item.language == "VN")
+                        // ================================ ANONYMOUS VN ================================
+                        .carousel-item(data-url=`/register`)
+                            each content in item.data_language
+                                if (dev)
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                else
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                .inner.desktop-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titlePc, index in content.pc_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                        else
+                                                            .title-text=titlePc
+                                                    if (content.pc_subtitle)
+                                                        each subTitlePc in content.pc_subtitle
+                                                            .subtitle-text=subTitlePc
+                                                .btn.btn-primary(data-url=`/register` data-matomo-action=`Click - Join Now - ${data.content_piece} - ${item.language} - Desktop`) ĐĂNG KÝ
+                                .inner.mobile-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titleSp, index in content.sp_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                        else
+                                                            .title-text.bold.small=titleSp
+                                                    if (content.sp_subtitle)
+                                                        each subTitleSp in content.sp_subtitle
+                                                            .subtitle-text.small=subTitleSp
+                                                .btn.btn-primary(data-url=`/register` data-matomo-action=`Click - Join Now - ${data.content_piece} - ${item.language} - Mobile`) ĐĂNG KÝ
+                        // ================================ END ANONYMOUS VN ================================
+
+                    if(item.language == "CN")
+                        // ================================ ANONYMOUS CN ================================
+                        .carousel-item(data-url=`/register`)
+                            each content in item.data_language
+                                if (dev)
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                else
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                .inner.desktop-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titlePc, index in content.pc_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                        else
+                                                            .title-text=titlePc
+                                                    if (content.pc_subtitle)
+                                                        each subTitlePc in content.pc_subtitle
+                                                            .subtitle-text=subTitlePc
+                                                .btn.btn-primary(data-url=`/register` data-matomo-action=`Click - Join Now - ${data.content_piece} - ${item.language} - Desktop`) 立即領取
+                                .inner.mobile-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titleSp, index in content.sp_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                        else
+                                                            .title-text.bold.small=titleSp
+                                                    if (content.sp_subtitle)
+                                                        each subTitleSp in content.sp_subtitle
+                                                            .subtitle-text.small=subTitleSp
+                                                .btn.btn-primary(data-url=`/register` data-matomo-action=`Click - Join Now - ${data.content_piece} - ${item.language} - Mobile`) 立即加入
+                        // ================================ END ANONYMOUS CN ================================
+
+include ./_footer.pug

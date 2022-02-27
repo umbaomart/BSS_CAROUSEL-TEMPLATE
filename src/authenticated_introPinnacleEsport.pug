@@ -1,0 +1,487 @@
+- let dev = true // comment me when you are going to copy the files to dev environment
+//- - let dev = false // uncomment me when you are going to copy the files to dev environment
+//- - let devImgUrl = "https://www.m88ura.com/~/static/images/home-page/carousel/"
+- let devImgUrl = "./../images/"
+- let uraIconUrl = "https://www.m88ura.com"
+- let underScore = "_"
+- let link_promo = "/promotions"
+
+
+
+include ./_data.pug
+include ./_head.pug
+
+    div.carousel-wrapper
+
+        div.slick-carousel
+
+            //- // ================= HOMEPAGE AUTHENTICATED =================
+
+            if(data.is_home)
+                each item in data.data_content
+                    if(item.language == "EN")
+                        // ================================ AUTHENTICATED EN ================================
+                        .carousel-item(data-url=`${data.is_more_info ? link_promo : data.url}`)
+                            each content in item.data_language
+                                if (dev)
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                else
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                .inner.desktop-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titlePc, index in content.pc_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                        else
+                                                            .title-text=titlePc
+                                                    if (content.pc_subtitle)
+                                                        each subTitlePc in content.pc_subtitle
+                                                            .subtitle-text=subTitlePc
+                                                if(data.is_play_now)
+                                                    .btn.btn-primary(data-url=`${data.url}` data-matomo-action=`Click - Play Now - ${data.content_piece} - ${item.language} - Desktop`) PLAY NOW
+                                                if(data.is_more_info)
+                                                    .btn.btn-primary(data-url=`${link_promo}` data-matomo-action=`Click - More Info - ${data.content_piece} - ${item.language} - Desktop`) MORE INFO
+                                .inner.mobile-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titleSp, index in content.sp_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                        else
+                                                            .title-text.bold.small=titleSp
+                                                    if (content.sp_subtitle)
+                                                        each subTitleSp in content.sp_subtitle
+                                                            .subtitle-text.small=subTitleSp
+                                                if(data.is_play_now)
+                                                    .btn.btn-primary(data-url=`${data.url}` data-matomo-action=`Click - Play Now - ${data.content_piece} - ${item.language} - Mobile`) PLAY NOW
+                                                if(data.is_more_info)
+                                                    .btn.btn-primary(data-url=`${link_promo}` data-matomo-action=`Click - More Info - ${data.content_piece} - ${item.language} - Mobile`) MORE INFO
+                        // ================================ END AUTHENTICATED EN ================================
+
+                    if(item.language == "MYR_CN")
+                        // ================================ AUTHENTICATED MYR_CN ================================
+                        .carousel-item(data-url=`${data.is_more_info ? link_promo : data.url}`)
+                            each content in item.data_language
+                                if (dev)
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                else
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                .inner.desktop-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titlePc, index in content.pc_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                        else
+                                                            .title-text=titlePc
+                                                    if (content.pc_subtitle)
+                                                        each subTitlePc in content.pc_subtitle
+                                                            .subtitle-text=subTitlePc
+                                                if(data.is_play_now)
+                                                    .btn.btn-primary(data-url=`${data.url}` data-matomo-action=`Click - Play Now - ${data.content_piece} - ${item.language} - Desktop`) 立即游戏
+                                                if(data.is_more_info)
+                                                    .btn.btn-primary(data-url=`${link_promo}` data-matomo-action=`Click - More Info - ${data.content_piece} - ${item.language} - Desktop`) 更多信息
+                                .inner.mobile-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titleSp, index in content.sp_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                        else
+                                                            .title-text.bold.small=titleSp
+                                                if(data.is_play_now)
+                                                    .btn.btn-primary(data-url=`${data.url}` data-matomo-action=`Click - Play Now - ${data.content_piece} - ${item.language} - Mobile`) 立即游戏
+                                                if(data.is_more_info)
+                                                    .btn.btn-primary(data-url=`${link_promo}` data-matomo-action=`Click - More Info - ${data.content_piece} - ${item.language} - Mobile`) 更多信息
+                        // ================================ END AUTHENTICATED MYR_CN ================================
+
+                    if(item.language == "ID")
+                        // ================================ AUTHENTICATED ID ================================
+                        .carousel-item(data-url=`${data.is_more_info ? link_promo : data.url}`)
+                            each content in item.data_language
+                                if (dev)
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                else
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                .inner.desktop-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titlePc, index in content.pc_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                        else
+                                                            .title-text=titlePc
+                                                    if (content.pc_subtitle)
+                                                        each subTitlePc in content.pc_subtitle
+                                                            .subtitle-text=subTitlePc
+                                                if(data.is_play_now)
+                                                    .btn.btn-primary(data-url=`${data.url}` data-matomo-action=`Click - Play Now - ${data.content_piece} - ${item.language} - Desktop`) MAIN SEKARANG
+                                                if(data.is_more_info)
+                                                    .btn.btn-primary(data-url=`${link_promo}` data-matomo-action=`Click - More Info - ${data.content_piece} - ${item.language} - Desktop`) INFO LENGKAP
+                                .inner.mobile-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titleSp, index in content.sp_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                        else
+                                                            .title-text.bold.small=titleSp
+                                                if(data.is_play_now)
+                                                    .btn.btn-primary(data-url=`${data.url}` data-matomo-action=`Click - Play Now - ${data.content_piece} - ${item.language} - Mobile`) MAIN SKRNG
+                                                if(data.is_more_info)
+                                                    .btn.btn-primary(data-url=`${link_promo}` data-matomo-action=`Click - More Info - ${data.content_piece} - ${item.language} - Mobile`) INFO
+                        // ================================ END AUTHENTICATED ID ================================
+
+                    if(item.language == "TH")
+                        // ================================ AUTHENTICATED TH ================================
+                        .carousel-item(data-url=`${data.is_more_info ? link_promo : data.url}`)
+                            each content in item.data_language
+                                if (dev)
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                else
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                .inner.desktop-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titlePc, index in content.pc_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                        else
+                                                            .title-text=titlePc
+                                                    if (content.pc_subtitle)
+                                                        each subTitlePc in content.pc_subtitle
+                                                            .subtitle-text=subTitlePc
+                                                if(data.is_play_now)
+                                                    .btn.btn-primary(data-url=`${data.url}` data-matomo-action=`Click - Play Now - ${data.content_piece} - ${item.language} - Desktop`) เล่นตอนนี้
+                                                if(data.is_more_info)
+                                                    .btn.btn-primary(data-url=`${link_promo}` data-matomo-action=`Click - More Info - ${data.content_piece} - ${item.language} - Desktop`) รายละเอียดเพิ่มเติม
+                                .inner.mobile-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titleSp, index in content.sp_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                        else
+                                                            .title-text.bold.small=titleSp
+                                                if(data.is_play_now)
+                                                    .btn.btn-primary(data-url=`${data.url}` data-matomo-action=`Click - Play Now - ${data.content_piece} - ${item.language} - Mobile`) เล่นตอนนี้
+                                                if(data.is_more_info)
+                                                    .btn.btn-primary(data-url=`${link_promo}` data-matomo-action=`Click - More Info - ${data.content_piece} - ${item.language} - Mobile`) ข้อมูล
+                        // ================================ END AUTHENTICATED TH ================================
+
+                    if(item.language == "VN")
+                        // ================================ AUTHENTICATED VN ================================
+                        .carousel-item(data-url=`${data.is_more_info ? link_promo : data.url}`)
+                            each content in item.data_language
+                                if (dev)
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                else
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                .inner.desktop-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titlePc, index in content.pc_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                        else
+                                                            .title-text=titlePc
+                                                    if (content.pc_subtitle)
+                                                        each subTitlePc in content.pc_subtitle
+                                                            .subtitle-text=subTitlePc
+                                                if(data.is_play_now)
+                                                    .btn.btn-primary(data-url=`${data.url}` data-matomo-action=`Click - Play Now - ${data.content_piece} - ${item.language} - Desktop`) CƯỢC
+                                                if(data.is_more_info)
+                                                    .btn.btn-primary(data-url=`${link_promo}` data-matomo-action=`Click - More Info - ${data.content_piece} - ${item.language} - Desktop`) CHI TIẾT
+                                .inner.mobile-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titleSp, index in content.sp_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                        else
+                                                            .title-text.bold.small=titleSp
+                                                if(data.is_play_now)
+                                                    .btn.btn-primary(data-url=`${data.url}` data-matomo-action=`Click - Play Now - ${data.content_piece} - ${item.language} - Mobile`) CƯỢC
+                                                if(data.is_more_info)
+                                                    .btn.btn-primary(data-url=`${link_promo}` data-matomo-action=`Click - More Info - ${data.content_piece} - ${item.language} - Mobile`) CHI TIẾT
+                        // ================================ END AUTHENTICATED VN ================================
+
+                    if(item.language == "CN")
+                        // ================================ AUTHENTICATED VN ================================
+                        .carousel-item(data-url=`${data.is_more_info ? link_promo : data.url}`)
+                            each content in item.data_language
+                                if (dev)
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`${devImgUrl}${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                else
+                                    img.carousel-image.desktop-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_pc+underScore+item.language : data.img_pc}.jpg?v=2`
+                                        alt=`img`
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Desktop'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                    img.carousel-image.mobile-only(
+                                        data-lazy=`/~/static/images/home-page/carousel/${content.data_img ? data.img_sp+underScore+item.language : data.img_sp}.jpg?v=2`
+                                        alt=''
+                                        data-track-content=''
+                                        data-content-name='On Boarding Journey and Login - Homepage - Carousel - Mobile'
+                                        data-content-piece=`${data.content_piece} - ${item.language}`)
+                                .inner.desktop-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titlePc, index in content.pc_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 35px; margin: unset; padding-bottom: 6px")
+                                                                .title-text=titlePc
+                                                        else
+                                                            .title-text=titlePc
+                                                    if (content.pc_subtitle)
+                                                        each subTitlePc in content.pc_subtitle
+                                                            .subtitle-text=subTitlePc
+                                                if(data.is_play_now)
+                                                    .btn.btn-primary(data-url=`${data.url}` data-matomo-action=`Click - Play Now - ${data.content_piece} - ${item.language} - Desktop`) 立即游戏
+                                                if(data.is_more_info)
+                                                    .btn.btn-primary(data-url=`${link_promo}` data-matomo-action=`Click - More Info - ${data.content_piece} - ${item.language} - Desktop`) 更多信息
+                                .inner.mobile-only
+                                    .inner-wrapper
+                                        .inner-content-right
+                                            .inner-content
+                                                .inner-text
+                                                    each titleSp, index in content.sp_title
+                                                        if(index == 0)
+                                                            if (dev)
+                                                                if(data.icon)
+                                                                    img(src=`${uraIconUrl}/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                            else
+                                                                if(data.icon)
+                                                                    img(src=`/~/static/images/sportsbook/icons/${data.icon}` alt="" style="height: 20px; margin: unset; padding-bottom: 0px")
+                                                                .title-text.bold.small=titleSp
+                                                        else
+                                                            .title-text.bold.small=titleSp
+                                                if(data.is_play_now)
+                                                    .btn.btn-primary(data-url=`${data.url}` data-matomo-action=`Click - Play Now - ${data.content_piece} - ${item.language} - Mobile`) 立即游戏
+                                                if(data.is_more_info)
+                                                    .btn.btn-primary(data-url=`${link_promo}` data-matomo-action=`Click - More Info - ${data.content_piece} - ${item.language} - Mobile`) 更多信息
+                        // ================================ END AUTHENTICATED VN ================================
+
+include ./_footer.pug

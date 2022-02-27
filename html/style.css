@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+}
+
+body {
+  background-color: pink;
+  /* background-color: teal; */
+}
+
+@font-face {
+  font-family: "AvantGarde-Demi";
+  src: url(./fonts/avantgardecedemi.woff);
+}
+
+@font-face {
+  font-family: "AvantGarde-Book";
+  src: url(./fonts/avantgardecebook.woff);
+}
+
+.slick-carousel .carousel-item .inner .inner-content .btn {
+  text-align: center;
+}
+
+/* @font-face {
+  font-family: myFirstFont;
+  src: url(sansation_light.woff);
+} */
